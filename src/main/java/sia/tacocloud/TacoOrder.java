@@ -4,7 +4,9 @@ import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/*
+Taco class which includes every information that is needed to make an order
+ */
 @Data
 public class TacoOrder {
 

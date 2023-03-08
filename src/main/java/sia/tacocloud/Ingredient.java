@@ -2,7 +2,9 @@ package sia.tacocloud;
 
 import lombok.Data;
 import org.springframework.asm.Type;
-
+/*
+Taco class which contains information about taco Ingredient
+ */
 @Data
 public class Ingredient {
 

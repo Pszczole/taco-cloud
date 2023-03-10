@@ -5,15 +5,15 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 import java.util.List;
 
 import sia.tacocloud.Ingredient.Type;
+
+import javax.validation.Valid;
 
 /*
 Comment needed
@@ -67,6 +67,24 @@ public class DesignTacoController {
                 .stream()
                 .filter(x -> x.getType().equals(type))
                 .collect(Collectors.toList());
+    }
+
+    /*
+    Method that handles POST request after submiting your taco
+    from home page
+     */
+    @PostMapping
+    public String processTaco(@Valid Taco taco, Errors errors
+            ,@ModelAttribute TacoOrder tacoOrder){
+
+        if(errors.hasErrors()){
+            return "design";
+        }
+
+        tacoOrder.addTaco(taco);
+        log.info("Processing taco: {}",taco);
+
+        return "redirect:/orders/current";
     }
 
 

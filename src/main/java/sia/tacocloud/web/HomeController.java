@@ -1,4 +1,4 @@
-package sia.tacocloud;
+package sia.tacocloud.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,7 +11,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String home(){
-        return "home";
+        return "design";
     }
 
 }

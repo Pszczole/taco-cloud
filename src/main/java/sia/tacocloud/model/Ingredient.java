@@ -1,4 +1,4 @@
-package sia.tacocloud;
+package sia.tacocloud.model;
 
 import lombok.Data;
 import org.springframework.asm.Type;

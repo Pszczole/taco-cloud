@@ -1,12 +1,14 @@
-package sia.tacocloud;
+package sia.tacocloud.model;
 
 import lombok.Data;
 import org.hibernate.validator.constraints.CreditCardNumber;
+import sia.tacocloud.model.Taco;
 
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 /*
 Taco class which includes every information that is needed to make an order with
@@ -14,6 +16,12 @@ validation
  */
 @Data
 public class TacoOrder {
+
+    private static final long serialVersionUTD = 1L;
+
+    private Long id;
+
+    private Date placedAt;
 
     @NotBlank(message = "Delivery name is required!")
     private String deliveryName;
@@ -38,7 +46,7 @@ public class TacoOrder {
     private String ccExpiration;
 
     @Digits(integer = 3,fraction = 0,message = "Invalid CVV")
-    private String ccCV;
+    private String ccCVV;
 
     private List<Taco> tacos = new ArrayList<>();
 

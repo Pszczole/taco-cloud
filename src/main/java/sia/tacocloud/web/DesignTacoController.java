@@ -40,6 +40,17 @@ public class DesignTacoController {
         this.ingredientRepo = ingredientRepo;
     }
 
+    @ModelAttribute
+    public void addIngredientsToModel(Model model){
+        Iterable<Ingredient> ingredients = ingredientRepo.findAll();
+        Type[] types = Ingredient.Type.values();
+
+        for(Type type : types){
+            model.addAttribute(type.toString().toLowerCase(),
+                    filterByType((List<Ingredient>) ingredients,type));
+        }
+    }
+
 
     @ModelAttribute(name = "tacoOrder")
     public TacoOrder order(){
@@ -86,6 +97,14 @@ public class DesignTacoController {
         log.info("Processing taco: {}",taco);
 
         return "redirect:/orders/current";
+    }
+
+    private Iterable<Ingredient> filterByType(
+            List<Ingredient> ingredients, Type type){
+        return ingredients
+                .stream()
+                .filter(x -> x.getType().equals(type))
+                .collect(Collectors.toList());
     }
 
 

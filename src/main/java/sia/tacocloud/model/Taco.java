@@ -21,7 +21,7 @@ public class Taco {
     private Date createdAt = new Date();
 
     @NotNull
-    @Pattern(regexp = "^[a-zA-Z]*$",message = "Name must be at least 5 characters long.")
+    @Size(min=5,message = "Name must be at least 5 characters long.")
     private String name;
 
     @NotNull

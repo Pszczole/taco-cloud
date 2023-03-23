@@ -4,15 +4,11 @@ spring:
   datasource:
     generate-unique-name: false
     name: tacoCloud
-  cassandra:
-    keyspace-name: taco_cloud
-    schema-action: recreate
-    local-datacenter: datacenter1
-    contact-points:
-      - casshost-1.tacocloud.com
-      - casshost-2.tacocloud.com
-      - casshost-3.tacocloud.com
-    port: 9043
-    username: tacocloud
-    password: s3cr3tP455w0rd
+  data:
+    mongodb:
+      host: mongodb.tacocloud.com #Hostname where mongo is running
+      port: 27017 # The port that the Mongo server is listening on
+      username: tacocloud # The username for accessing a secured MongoDataBase
+      password: s3cr3tp455w0rd # The password for accessing a secured MongoDataBase
+      database: tacoclouddb # Database name
 

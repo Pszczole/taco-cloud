@@ -9,7 +9,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-public interface OrderRepository extends CrudRepository<TacoOrder, UUID> {
+public interface OrderRepository
+        extends CrudRepository<TacoOrder, String> {
 
 
 }

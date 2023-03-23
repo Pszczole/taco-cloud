@@ -1,23 +1,25 @@
 package sia.tacocloud.model;
 
 import lombok.Data;
-import sia.tacocloud.model.Ingredient;
 
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.UUID;
 
 /*
 Taco class which contains name of our taco and list of ingredients with
 validation
  */
 @Data
+@Entity
 public class Taco {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     @NotNull
     @Size(min=5,message = "Name must be at least 5 characters long.")
     private String name;
@@ -25,6 +27,7 @@ public class Taco {
     private Date createdAt = new Date();
 
     @Size(min=1,message = "You must choose at least 1 ingredient.")
+    @ManyToMany
     private List<Ingredient> ingredients  = new ArrayList<>();
 
     public void addIngredient(Ingredient ingredient){

@@ -4,24 +4,22 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.asm.Type;
-import org.springframework.data.annotation.Id;
 
-import org.springframework.data.domain.Persistable;
-import org.springframework.data.mongodb.core.mapping.Document;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /*
 Taco class which contains information about taco Ingredient
  */
 @Data
-@Document(collation = "ingredients")
-@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PUBLIC, force = true)
 public class Ingredient {
     @Id
     private  String id;
     private  String name;
     private  Type type;
-
 
 
     public enum Type{

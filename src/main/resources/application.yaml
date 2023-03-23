@@ -4,11 +4,10 @@ spring:
   datasource:
     generate-unique-name: false
     name: tacoCloud
-  data:
-    mongodb:
-      host: mongodb.tacocloud.com #Hostname where mongo is running
-      port: 27017 # The port that the Mongo server is listening on
-      username: tacocloud # The username for accessing a secured MongoDataBase
-      password: s3cr3tp455w0rd # The password for accessing a secured MongoDataBase
-      database: tacoclouddb # Database name
+  h2:
+    console:
+      enabled: true
+server:
+  port: 8090
+
 

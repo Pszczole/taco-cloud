@@ -7,11 +7,11 @@ import sia.tacocloud.model.TacoOrder;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
-public interface OrderRepository extends CrudRepository<TacoOrder, Long> {
+import java.util.UUID;
 
-    List<TacoOrder> findByDeliveryZip(String deliveryZip);
+public interface OrderRepository extends CrudRepository<TacoOrder, UUID> {
 
-    List<TacoOrder> readTacoOrderByDeliveryZipAndPlacedAtBetween(String deliveryZip, Date startDate, Date endDate);
+
 }
 
 

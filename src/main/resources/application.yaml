@@ -7,6 +7,16 @@ spring:
   h2:
     console:
       enabled: true
+  security:
+    oauth2:
+      client:
+        registration:
+          facebook:
+            client-id: <facebook client id>
+            client-secret: <facebook client secret>
+            scope:
+              - email
+              - public_profile
 server:
   port: 8090
 

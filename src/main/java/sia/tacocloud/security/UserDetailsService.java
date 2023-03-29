@@ -15,23 +15,8 @@ public interface UserDetailsService {
     UserDetails loadUserByUsername(String username) throws
             UsernameNotFoundException;
 
-    @Bean
-    public default UserDetailsService userDetailsService(UserRepository userRepository){
-        return username -> {
-            User user = userRepository.findByUsername(username);
-            if(user != null) return user;
 
-            throw new UsernameNotFoundException("User :"+username+" not found");
-        };
-    }
 
-    @Bean
-    public default SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
-        return http
-                .authorizeRequests()
-                .antMatchers("/design","/orders").access("hasRole('USER')")
-                .antMatchers("/","/**").access("permitAll()")
-                .and().formLogin().loginPage("/login").and().build();
-    }
+
 
 }

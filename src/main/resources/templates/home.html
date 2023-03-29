@@ -9,5 +9,10 @@
 <h1>Welcome to taco Cloud</h1>
 
 <a th:href="@{/design}" id="design">Design a taco</a>
+
+
+<form method="post" th:action="@{/logout}" >
+    <input type="submit" value="Logout">
+</form>
 </body>
 </html>

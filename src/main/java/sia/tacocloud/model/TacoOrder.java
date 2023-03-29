@@ -18,6 +18,7 @@ validation
  */
 @Data
 @Entity
+@Table(name = "Taco_Order")
 public class TacoOrder implements Serializable {
 
     private static final long serialVersionUTD = 1L;
@@ -48,11 +49,16 @@ public class TacoOrder implements Serializable {
     private String ccCVV;
     private String ccCV;
 
+    @ManyToOne
+    private User user;
+
     @OneToMany(cascade = CascadeType.ALL)
     private List<Taco> tacos = new ArrayList<>();
 
     public void addTaco(Taco taco){
         this.tacos.add(taco);
     }
+
+
 
 }

@@ -6,7 +6,6 @@ import sia.tacocloud.model.TacoOrder;
 public interface OrderRepository
         extends CrudRepository<TacoOrder, Long> {
 
-
 }
 
 

@@ -8,6 +8,9 @@ spring:
     console:
       enabled: true
   security:
+    user:
+      name: buzz
+      password: infinity
     oauth2:
       client:
         registration:
@@ -20,4 +23,16 @@ spring:
 server:
   port: 8090
 
+---
+spring:
+  profiles: prod
+
+  datasource:
+    url: jdbc:mysql://localhost/tacocloud
+    username: tacouser
+    password: tacopassword
+
+logging:
+  level:
+    tacos: WARN
 
